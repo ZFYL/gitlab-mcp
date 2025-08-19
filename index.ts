@@ -479,11 +479,6 @@ const allTools = [
     inputSchema: zodToJsonSchema(CreateNoteSchema),
   },
   {
-    name: "create_merge_request_thread",
-    description: "Create a new thread on a merge request",
-    inputSchema: zodToJsonSchema(CreateMergeRequestThreadSchema),
-  },
-  {
     name: "mr_discussions",
     description: "List discussion items for a merge request",
     inputSchema: zodToJsonSchema(ListMergeRequestDiscussionsSchema),
@@ -4604,21 +4599,6 @@ server.setRequestHandler(CallToolRequestSchema, async request => {
         };
       }
 
-      case "create_merge_request_thread": {
-        const args = CreateMergeRequestThreadSchema.parse(request.params.arguments);
-        const { project_id, merge_request_iid, body, position, created_at } = args;
-
-        const thread = await createMergeRequestThread(
-          project_id,
-          merge_request_iid,
-          body,
-          position,
-          created_at
-        );
-        return {
-          content: [{ type: "text", text: JSON.stringify(thread, null, 2) }],
-        };
-      }
 
       case "list_issues": {
         const args = ListIssuesSchema.parse(request.params.arguments);

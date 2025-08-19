@@ -198,7 +198,7 @@ docker run -i --rm \
 14. `get_branch_diffs` - Get the changes/diffs between two branches or commits in a GitLab project
 15. `update_merge_request` - Update a merge request (Either mergeRequestIid or branchName must be provided)
 16. `create_note` - Create a new note (comment) to an issue or merge request
-17. `create_merge_request_thread` - Create a new thread on a merge request
+17. `create_merge_request_thread` - Create a new thread on a merge request - REMOVED
 18. `mr_discussions` - List discussion items for a merge request
 19. `update_merge_request_note` - Modify an existing merge request thread note
 20. `create_merge_request_note` - Add a new note to an existing merge request thread
